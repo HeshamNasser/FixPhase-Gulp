@@ -1,0 +1,11 @@
+.wrapper {
+    .login-form {
+        .form-control {
+            border: 2px solid $greenTeal;
+        }
+        .btn{
+            color: $white;
+            background: $greenTeal;
+        }
+    }
+}

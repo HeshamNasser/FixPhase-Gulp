@@ -15,11 +15,44 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body class="ar loading">
+    <body>
         <!--[if lt IE 10]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
+        <div class="container">
+            <!-- Header -->
+            <div class="header row">
+                <div class="headerinside col-md-6 col-md-offset-3">
+                    <h1 class="text-center">Hello!</h1>
+                    <h2 class="text-center green">.. and welcome in</h2>
+                </div>
+            </div>
+            <!-- END:Header -->
+            <!-- Wrapper --> 
+            <div class="wrapper row margin-top-20">
+                <div class="form login-form col-md-4 col-md-offset-4">
+                    <img src="images/logo.png" class="img-responsive">
+                    <form action="" method="post" class="col-md-10 col-md-offset-1">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="username" placeholder="Enter Username..">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="password" placeholder="Enter Password..">
+                        </div>
+                        <div class="rememberme">
+                            <label>Remember me: <input id="rememberme" type="checkbox" name="rememberme"></label>
+                        </div>
+                        <div class="checkbox col-md-offset-3">
+                            <input type="submit" class="btn" value="LOG IN" name="login">
+                            <button class="btn">SIGN UP</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END:Wrapper -->
+        </div>    
+
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

@@ -1,0 +1,19 @@
+.header {
+    .headerinside {
+        background-image: url("../images/header.png");
+        background-size: cover;
+        background-position: center 62%;
+        height: 200px;
+        padding: 2em;
+        h1 {
+            opacity: .6;
+            font-size: 3em;
+            letter-spacing: 1px;
+        }
+        h2 {
+            opacity: .6;
+            color: $greenTeal;
+        }
+    }
+
+}
