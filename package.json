@@ -2,7 +2,11 @@
   "name": "Appname",
   "version": "1.0.0",
   "description": "description",
-  "repository": "",
+  "private": true,
+  "repository": {
+      "type": "git",
+      "url": "https://TareqElMasri@bitbucket.org/TareqElMasri/webapplication.git"
+    },
   "dependencies": {
     "gulp-concat": "^2.5.2",
     "gulp-usemin": "^0.3.11"
