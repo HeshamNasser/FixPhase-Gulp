@@ -1,0 +1,12 @@
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.container {  
+  @include breakpoint(lg,lg) {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}

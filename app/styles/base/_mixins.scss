@@ -1,0 +1,36 @@
+@mixin centralize($top:0, $right:0, $bottom:0, $left:0, $margin:auto) {
+  position: absolute;
+  margin: #{$margin};
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin makebtn($bgColor:#cb4e4e, $txColor:#ffffff) {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: $txColor;
+  position: relative;
+  border-radius: 5px;
+  font-family: inherit;
+  display: inline-block;
+  background: $bgColor;
+  text-transform: uppercase;
+  box-shadow: 0 6px darken($bgColor, 10%);
+  &:after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    @include transition(all 0.3s);
+  }
+  &:hover {
+    top: 2px;
+    box-shadow: 0 4px darken($bgColor, 10%);
+  }
+  &:active {
+    top: 6px;
+    box-shadow: 0 0 darken($bgColor, 10%);
+  }
+}

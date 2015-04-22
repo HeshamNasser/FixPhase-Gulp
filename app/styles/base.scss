@@ -1,0 +1,12 @@
+// Bootstrap
+$icon-font-path: "../scripts/vendor/bootstrap-sass-rtl/src/fonts/bootstrap/";
+// @import "../scripts/vendor/bootstrap-sass-rtl/src/stylesheets/bootstrap-rtl";
+@import "../scripts/vendor/color-me-sass-master/color-me-sass";
+
+// Plugins
+// @import "../scripts/vendor/fullpage.js/jquery.fullPage";
+
+// Base Files
+@import "base/reset";
+@import "base/params";
+@import "base/mixins";

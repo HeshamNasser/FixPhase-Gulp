@@ -1,0 +1,69 @@
+// @
+@mixin breakpoint($min: 0, $max: 0) {
+  $typeA: type-of($min);
+  $typeB: type-of($max);
+  
+  @if $typeA == string and $typeB == string {
+      @if $min == xs {
+        $query: "all" !default; // All Devices
+        @if         $max == xs { $query: "(min-width: 0) and (max-width: #{$screen-xs-max})"; } // Mobiles only
+        @else if $max == sm { $query: "(min-width: #{$screen-xs-min}) and (max-width: #{$screen-sm-max})"; } // Mobiles and Tablets only
+        @else if $max == md { $query: "(min-width: #{$screen-xs-min}) and (max-width: #{$screen-md-max})"; } // Mobiles and Tablets and Desktops only
+        @else if $max == lg { $query: "(min-width: #{$screen-xs-min})"; } // All Devices
+        @media #{$query} { @content; }
+      }
+      
+      @else if $min == sm {
+        $query: "all" !default; // All Devices
+        @if         $max == sm { $query: "(min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})"; } // Tablets only
+        @else if $max == md { $query: "(min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-max})"; } // Tablets and Desktops only
+        @else if $max == lg { $query: "(min-width: #{$screen-sm-min})"; } // All Devices
+        @media #{$query} { @content; }
+      }
+      
+      @else if $min == md {
+        $query: "all" !default; // All Devices
+        @if $max == md { $query: "(min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})"; } // Desktops only
+        @else if $max == lg { $query: "(min-width: #{$screen-md-min})"; } // All Devices 
+        @media #{$query} { @content; }
+      }
+      
+      @else if $min == lg {
+        $query: "all" !default; // All Devices
+        @media #{$query} { @content; }
+      }
+    
+      // Otherwise pass a warning to the compiler as to the appropriate options
+      @else {
+        @warn "The breakpoint mixin supports the following attributes: xs, sm, md, lg";
+      }
+  } @else if typeA == string {
+    @if $min == xs { 
+      @media (max-width: $screen-xs-max) { @content; }       // Mobile Devices
+    }
+    
+    @else if $min == sm {
+      @media (min-width: $screen-sm-min) { @content; }       // Tablet Devices
+    }
+    
+    @else if $min == md {
+      @media (min-width: $screen-md-min) { @content; }       // Desktops
+    }
+    
+    @else if $min == lg {
+      @media (min-width: $screen-lg-min) { @content; }      // Widescreen Desktops only
+    }
+  
+    // Otherwise pass a warning to the compiler as to the appropriate options
+    @else {
+      @warn "The breakpoint mixin supports the following attributes: xs, sm, md, lg";
+    }
+  } @else if $typeA == number {
+    // Allow for custom parameters for min and max size
+    $query: "all" !default;
+    @if      $min != 0 and $max != 0 { $query: "(min-width: #{$min}) and (max-width: #{$max})"; } // set both min and max
+    @else if $min != 0 and $max == 0 { $query: "(min-width: #{$min})"; } // set just min
+    @else if $min == 0 and $max != 0 { $query: "(max-width: #{$max})"; } // set just max
+    @media #{$query} { @content; }
+  }
+}
